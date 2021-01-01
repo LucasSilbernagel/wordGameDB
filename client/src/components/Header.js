@@ -4,8 +4,17 @@ function Header() {
   return (
     <>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/endpoints">Endpoints</Link>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/endpoints">Endpoints</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
       </nav>
 
       <h1>Word Game DB</h1>
