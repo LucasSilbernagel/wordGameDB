@@ -40,25 +40,25 @@ class SaveNewWord extends Component {
 
   render() {
     return (
+      <>
+        <h2>Save a new word to the database using the form below:</h2>
+        <form>
 
-      // Form to collect details about the new word being saved to MongoDB
-      <form>
+          <label htmlFor="word" className="sr-only">Word</label>
+          <input id="word" required type="text" placeholder="word" onChange={this.handleChange} />
+          
+          <label htmlFor="category" className="sr-only">Category</label>
+          <input id="category" required type="text" placeholder="category" onChange={this.handleChange} />
 
-        <label htmlFor="word" className="sr-only">Word</label>
-        <input id="word" required type="text" placeholder="word" onChange={this.handleChange} />
-        
-        <label htmlFor="category" className="sr-only">Category</label>
-        <input id="category" required type="text" placeholder="category" onChange={this.handleChange} />
+          <label htmlFor="numLetters" className="sr-only">Number of letters</label>
+          <input id="numLetters" required type="number" placeholder="number of letters" onChange={this.handleChange} />
 
-        <label htmlFor="numLetters" className="sr-only">Number of letters</label>
-        <input id="numLetters" required type="number" placeholder="number of letters" onChange={this.handleChange} />
-
-        <label htmlFor="numSyllables" className="sr-only">Number of syllables</label>
-        <input id="numSyllables" required type="number" placeholder="number of syllables" onChange={this.handleChange} />
-        
-        <button type="submit" onClick={this.saveWord}>Save word to API</button>
-      </form>
-
+          <label htmlFor="numSyllables" className="sr-only">Number of syllables</label>
+          <input id="numSyllables" required type="number" placeholder="number of syllables" onChange={this.handleChange} />
+          
+          <button type="submit" onClick={this.saveWord}>Save word to API</button>
+        </form>
+      </>
     )
   }
 }
