@@ -1,6 +1,10 @@
 export const theme = {
-  primaryDark: '#0D0C1D',
-  primaryLight: '#EFFFFA',
-  primaryHover: '#343078',
-  mobile: '576px',
+  headerFont: "'Luckiest Guy', cursive",
+  mainFont: "'Open Sans', sans-serif",
+  primaryDark: '#3D405B',
+  secondaryDark: '#000000',
+  primaryLight: '#F4F1DE',
+  secondaryLight: '#F2CC8F',
+  primaryAccent: '#E07A5F',
+  secondaryAccent: '#81B29A',
 }
