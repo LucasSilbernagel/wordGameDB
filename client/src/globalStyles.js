@@ -9,13 +9,29 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 body {
-  background: #000000;
-  color: #FFFFFF;
+  background: ${({ theme }) => theme.primaryDark};
+  color: ${({ theme }) => theme.primaryLight};
+  font-family: ${({ theme }) => theme.mainFont};
+}
+
+header,
+footer {
+  background: ${({ theme }) => theme.secondaryLight};
+  color: ${({ theme }) => theme.secondaryDark};
 }
 
 .wrapper {
   margin: 0 auto;
   max-width: 1000px;
+}
+
+h1 {
+  font-family: ${({ theme }) => theme.headerFont};
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: 700;
 }
 
 ul {
