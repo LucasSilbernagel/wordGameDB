@@ -53,10 +53,10 @@ class SaveNewWord extends Component {
           <input id="category" required type="text" placeholder="Category" onChange={this.handleChange} />
 
           <label htmlFor="numLetters" className="sr-only">Number of letters</label>
-          <input id="numLetters" required type="number" placeholder="Number of letters" onChange={this.handleChange} />
+          <input id="numLetters" required type="number" min="1" placeholder="Number of letters" onChange={this.handleChange} />
 
           <label htmlFor="numSyllables" className="sr-only">Number of syllables</label>
-          <input id="numSyllables" required type="number" placeholder="Number of syllables" onChange={this.handleChange} />
+          <input id="numSyllables" required type="number" min="1" placeholder="Number of syllables" onChange={this.handleChange} />
           
           <StyledButton type="submit" onClick={this.saveWord}>Save word to API</StyledButton>
         </form>

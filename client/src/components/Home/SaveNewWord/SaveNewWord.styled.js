@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledSaveNewWord = styled.div`
+export const StyledSaveNewWord = styled.section`
+  padding: 20px 0px;
   form {
     margin: 0 auto;
     display: flex;
@@ -12,9 +13,11 @@ export const StyledSaveNewWord = styled.div`
       background-color: ${({ theme }) => theme.primaryLight};
       box-shadow: 2px 4px ${({ theme }) => theme.secondaryDark};
       width: 100%;
+      max-width: 300px;
+      text-align: center;
       font-size: 1.5rem;
       border: none;
-      padding: 10px 5px;
+      padding: 10px 20px;
       &[type=number] {
         appearance: textfield;
       }

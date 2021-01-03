@@ -9,12 +9,12 @@ export const StyledButton = styled.button`
   padding: 10px;
   box-shadow: 5px 8px ${({ theme }) => theme.primaryAccent};
   cursor: pointer;
-  transition: all 0.5s;
+  transition: all 0.4s;
   &:hover,
   &:focus {
-    transform: scale(1.05);
+    box-shadow: 5px 8px ${({ theme }) => theme.primaryLight};
   }
   &:active {
-    box-shadow: 2px 4px ${({ theme }) => theme.primaryAccent};
+    box-shadow: 2px 4px ${({ theme }) => theme.primaryLight};
   }
 `;
