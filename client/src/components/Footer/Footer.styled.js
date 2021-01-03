@@ -5,14 +5,13 @@ export const StyledFooter = styled.footer`
   p {
     text-transform: uppercase;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: ${({ theme }) => theme.secondaryDark};
     a {
       color: ${({ theme }) => theme.secondaryDark};
-      text-decoration: none;
       &:hover,
       &:focus {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
   }
