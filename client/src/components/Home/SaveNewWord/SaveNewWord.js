@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { StyledSaveNewWord } from './SaveNewWord.styled';
+import { StyledButton } from '../../Button.styled';
 
 class SaveNewWord extends Component {
 
@@ -40,25 +42,25 @@ class SaveNewWord extends Component {
 
   render() {
     return (
-      <>
-        <h2>Save a new word to the database using the form below:</h2>
+      <StyledSaveNewWord >
+        <p>Save a new word to the database using the form below:</p>
         <form>
 
           <label htmlFor="word" className="sr-only">Word</label>
-          <input id="word" required type="text" placeholder="word" onChange={this.handleChange} />
+          <input id="word" required type="text" placeholder="Word" onChange={this.handleChange} />
           
           <label htmlFor="category" className="sr-only">Category</label>
-          <input id="category" required type="text" placeholder="category" onChange={this.handleChange} />
+          <input id="category" required type="text" placeholder="Category" onChange={this.handleChange} />
 
           <label htmlFor="numLetters" className="sr-only">Number of letters</label>
-          <input id="numLetters" required type="number" placeholder="number of letters" onChange={this.handleChange} />
+          <input id="numLetters" required type="number" placeholder="Number of letters" onChange={this.handleChange} />
 
           <label htmlFor="numSyllables" className="sr-only">Number of syllables</label>
-          <input id="numSyllables" required type="number" placeholder="number of syllables" onChange={this.handleChange} />
+          <input id="numSyllables" required type="number" placeholder="Number of syllables" onChange={this.handleChange} />
           
-          <button type="submit" onClick={this.saveWord}>Save word to API</button>
+          <StyledButton type="submit" onClick={this.saveWord}>Save word to API</StyledButton>
         </form>
-      </>
+      </StyledSaveNewWord >
     )
   }
 }
