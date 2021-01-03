@@ -20,21 +20,9 @@ footer {
   color: ${({ theme }) => theme.secondaryDark};
 }
 
-header {
-  padding: 80px 0px 10px 0px;
-}
-
-footer {
-  padding: 20px 0px;
-}
-
 .wrapper {
   margin: 0 auto;
   max-width: 1000px;
-}
-
-h2 {
-  font-weight: 700;
 }
 
 ul {

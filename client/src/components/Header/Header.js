@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from '.././../hooks';
 import { Burger, Menu } from './MobileNavigation';
+import { StyledHeader } from './Header.styled';
 import FocusLock from 'react-focus-lock';
 import DesktopNavigation from './DesktopNavigation/DesktopNavigation';
-import AppTitle from './AppTitle/AppTitle';
 
 function Header() {
 
@@ -14,7 +14,7 @@ function Header() {
   useOnClickOutside(node, () => setOpen(false));
 
   return (
-    <header>
+    <StyledHeader >
       <div className="wrapper">
         <div ref={node}>
           <FocusLock disabled={!open}>
@@ -23,9 +23,9 @@ function Header() {
           </FocusLock>
         </div>
         <DesktopNavigation />
-        <AppTitle />
+        <h1>Word Game DB</h1>
       </div>
-    </header>
+    </StyledHeader >
   )
 }
 
