@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledMenu = styled.nav`
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.primaryLight};
@@ -13,22 +14,20 @@ export const StyledMenu = styled.nav`
   top: 0;
   left: right;
   transition: transform 0.3s ease-in-out;
-  @media (max-width: 576px) {
-      width: 100%;
+  @media (min-width: 576px) {
+      display: none;
     }
   a {
     font-size: 2rem;
+    text-align: center;
+    font-family: ${({ theme }) => theme.mainFont};
     text-transform: uppercase;
     padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 5px;
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
-    @media (max-width: 576px) {
-      font-size: 1.5rem;
-      text-align: center;
-    }
     &:hover,
     &:focus {
       color: ${({ theme }) => theme.secondaryAccent};

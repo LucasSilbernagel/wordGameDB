@@ -1,4 +1,4 @@
-import SaveNewWord from './SaveNewWord';
+import SaveNewWord from './SaveNewWord/SaveNewWord';
 import About from './About/About';
 
 function Home() {

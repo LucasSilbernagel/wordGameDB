@@ -20,14 +20,17 @@ footer {
   color: ${({ theme }) => theme.secondaryDark};
 }
 
+header {
+  padding: 80px 0px 10px 0px;
+}
+
+footer {
+  padding: 20px 0px;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1000px;
-}
-
-h1 {
-  font-family: ${({ theme }) => theme.headerFont};
-  text-transform: uppercase;
 }
 
 h2 {
@@ -40,5 +43,10 @@ ul {
 
 li {
   list-style: none;
+}
+
+p {
+  padding: 0px 10px;
+  font-size: 1.5rem;
 }
 `
