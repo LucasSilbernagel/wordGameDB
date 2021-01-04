@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { StyledSaveNewWord } from './SaveNewWord.styled';
 import { StyledButton } from '../../Button.styled';
+import { StyledForm } from '../../Form.styled';
 
 class SaveNewWord extends Component {
 
@@ -44,7 +45,7 @@ class SaveNewWord extends Component {
     return (
       <StyledSaveNewWord >
         <p>Save a new word to the database using the form below:</p>
-        <form>
+        <StyledForm>
 
           <label htmlFor="word" className="sr-only">Word</label>
           <input id="word" required type="text" placeholder="Word" onChange={this.handleChange} />
@@ -59,7 +60,7 @@ class SaveNewWord extends Component {
           <input id="numSyllables" required type="number" min="1" placeholder="Number of syllables" onChange={this.handleChange} />
           
           <StyledButton type="submit" onClick={this.saveWord}>Save word to API</StyledButton>
-        </form>
+        </StyledForm>
       </StyledSaveNewWord >
     )
   }

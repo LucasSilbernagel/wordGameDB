@@ -9,11 +9,34 @@ router.post('/v1/words', (req, res, next) => {
       .catch(next)
 });
 
-// Endpoint to return all words
+// Endpoint to return all words, with optional query parameters
+// Can filter by _id, category, numLetters, numSyllables
 router.get('/v1/words', (req, res, next) => {
-  Word.find()
+  let _id = req.query._id;
+  let category = req.query.category;
+  let numLetters = req.query.numLetters;
+  let numSyllables = req.query.numSyllables
+  if (_id) {
+    Word.find({ _id })
     .then(data => res.json(data))
     .catch(next)
+  } else if (category) {
+    Word.find({ category })
+    .then(data => res.json(data))
+    .catch(next)
+  } else if (numLetters) {
+    Word.find({ numLetters })
+    .then(data => res.json(data))
+    .catch(next)
+  } else if (numSyllables) {
+    Word.find({ numSyllables })
+    .then(data => res.json(data))
+    .catch(next)
+  } else {
+    Word.find()
+    .then(data => res.json(data))
+    .catch(next)
+  }
 });
 
 // Endpoint to return a random word
