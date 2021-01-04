@@ -39,6 +39,7 @@ p {
   margin: 20px auto;
   max-width: 650px;
   line-height: 1.3;
+  text-align: left;
   @media (min-width: 576px) {
     font-size: 1.5rem;
     line-height: 1.5;
