@@ -6,6 +6,7 @@ export const StyledFooter = styled.footer`
     text-transform: uppercase;
     text-align: center;
     font-size: 1.1rem;
+    font-weight: 700;
     color: ${({ theme }) => theme.secondaryDark};
     a {
       color: ${({ theme }) => theme.secondaryDark};
