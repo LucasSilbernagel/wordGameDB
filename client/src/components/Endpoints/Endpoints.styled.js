@@ -14,9 +14,6 @@ export const StyledEndpoints = styled.section`
     margin-top: 25px;
     overflow-y: scroll;
     background: #272822;
-    p {
-      text-align: center;
-    }
     .string { 
     color: #FD971F; 
     }

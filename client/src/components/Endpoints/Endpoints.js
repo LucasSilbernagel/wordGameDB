@@ -3,7 +3,7 @@ import { StyledEndpoints } from './Endpoints.styled';
 import { StyledForm } from '../Form.styled';
 import { StyledButton } from '../Button.styled';
 import axios from 'axios';
-import Loading from '../Loading';
+import Loading from '../Loading/Loading';
 
 function Endpoints() {
 
