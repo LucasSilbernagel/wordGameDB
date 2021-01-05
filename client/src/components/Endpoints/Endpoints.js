@@ -1,9 +1,13 @@
+import React, { useState } from "react";
 import { StyledEndpoints } from './Endpoints.styled';
 import { StyledForm } from '../Form.styled';
 import { StyledButton } from '../Button.styled';
 import axios from 'axios';
+import Loading from '../Loading';
 
 function Endpoints() {
+
+  const [loading, setLoading] = useState(false);
 
   function output(inp) {
     const allData = document.getElementById('allData');
@@ -63,30 +67,17 @@ function Endpoints() {
       numSyllables = `numSyllables=${document.getElementById('numSyllables').value}`;
     };
 
-    axios.get(`/api/v1/words/?${_id}${category}${numLetters}${numSyllables}`)
-      .then((res) => {
-        let allData = Object.assign({}, res.data);
-        let str = JSON.stringify(allData, undefined, 4);
-        output(syntaxHighlight(str));
-      });
-
-
-    // setLoading(true)
-    // setTimeout(() => {
-    //   axios.get('/api/v1/words')
-    //     .then((response) => {
-    //       if (response.ok) {
-    //         return response.json();
-    //       } else {
-    //         throw new Error('Something went wrong');
-    //       }
-    //     })
-    //     .then(res => console.log(res))
-    //     .catch((error) => {
-    //       console.log(error)
-    //     })
-    //     .then(setLoading(false))
-    // }, 1000)
+    output("");
+    setLoading(true);
+    setTimeout(() => {
+      axios.get(`/api/v1/words/?${_id}${category}${numLetters}${numSyllables}`)
+        .then((res) => {
+          let allData = Object.assign({}, res.data);
+          let str = JSON.stringify(allData, undefined, 4);
+          output(syntaxHighlight(str));
+        })
+        .then(setLoading(false))
+    }, 1000);
         
   };
 
@@ -114,7 +105,9 @@ function Endpoints() {
             <input id="numSyllables" type="number" min="1" placeholder="numSyllables (optional)" onKeyPress={handleKeyPress} />
           </StyledForm>
           <StyledButton type="submit" onClick={showData}>Show Data ⬇</StyledButton>
-          <pre id="allData"></pre>
+          <pre id="allData">
+            <Loading loading={loading} />
+          </pre>
         </StyledEndpoints>
       </div>
     </main>
