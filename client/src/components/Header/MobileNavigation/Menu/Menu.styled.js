@@ -6,14 +6,12 @@ export const StyledMenu = styled.nav`
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.primaryLight};
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-200%)'};
+  right: ${({ open }) => open ? '0' : '-200%'};
   height: 100vh;
-  text-align: right;
   padding: 2rem;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: right;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   @media (min-width: 576px) {
       display: none;
     }
