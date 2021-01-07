@@ -9,6 +9,13 @@ router.post('/v1/words', (req, res, next) => {
       .catch(next)
 });
 
+// Endpoint to return all categories
+router.get('/v1/words/categories', (req, res, next) => {
+  Word.distinct('category')
+  .then(data => res.json(data))
+  .catch(next)
+});
+
 // Endpoint to return all words, with optional query parameters
 router.get('/v1/words', (req, res, next) => {
   let queryParameters = req.query;

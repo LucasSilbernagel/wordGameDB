@@ -34,7 +34,9 @@ li {
 }
 
 p {
-  padding: 0px 10px;
+  background: ${({ theme }) => theme.secondaryDark};
+  padding: 10px;
+  border-radius: 5px;
   font-size: 1.4rem;
   margin: 20px auto;
   max-width: 650px;

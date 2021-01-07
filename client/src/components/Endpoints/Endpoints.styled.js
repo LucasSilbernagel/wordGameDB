@@ -14,6 +14,12 @@ export const StyledEndpoints = styled.section`
     margin-top: 25px;
     overflow-y: scroll;
     background: #272822;
+    p {
+      background: unset;
+      padding: unset;
+      border-radius: unset;
+      text-align: center;
+    }
     .string { 
     color: #FD971F; 
     }
