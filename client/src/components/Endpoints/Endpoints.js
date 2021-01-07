@@ -96,7 +96,7 @@ function Endpoints() {
             <input id="_id" type="text" placeholder="_id (optional)" onKeyPress={handleKeyPress} />
             
             <label htmlFor="category" className="sr-only">Category (optional)</label>
-            <input id="category" type="text" placeholder="Category (optional)" onKeyPress={handleKeyPress} />
+            <input id="category" type="text" placeholder="category (optional)" onKeyPress={handleKeyPress} />
 
             <label htmlFor="numLetters" className="sr-only">numLetters</label>
             <input id="numLetters" type="number" min="1" placeholder="numLetters (optional)" onKeyPress={handleKeyPress} />
@@ -106,6 +106,7 @@ function Endpoints() {
           </StyledForm>
           <StyledButton type="submit" onClick={showData}>Show Data ⬇</StyledButton>
           <pre id="allData">
+            <p>Data will be displayed here!</p>
             <Loading loading={loading} />
           </pre>
         </StyledEndpoints>
