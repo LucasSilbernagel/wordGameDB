@@ -10,7 +10,7 @@ router.post('/v1/words', (req, res, next) => {
 });
 
 // Endpoint to return all categories
-router.get('/v1/words/categories', (req, res, next) => {
+router.get('/v1/categories', (req, res, next) => {
   Word.distinct('category')
   .then(data => res.json(data))
   .catch(next)

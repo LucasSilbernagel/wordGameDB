@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Endpoints from './components/Endpoints/Endpoints';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import NotFound from './components/NotFound/NotFound';
 import { Switch, Route } from "react-router-dom";
 import { GlobalStyles } from './globalStyles';
 import { theme } from './theme';
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route path="/endpoints" component={Endpoints} />
           <Route path="/contact" component={Contact} />
+          <Route component={NotFound} />
         </Switch>
         <Footer />
       </>

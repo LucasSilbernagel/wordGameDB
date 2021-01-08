@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { StyledDesktopNavigation } from './DesktopNavigation.styled';
 
 function MobileNavigation() {
@@ -8,13 +8,13 @@ function MobileNavigation() {
     <StyledDesktopNavigation>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink exact to="/" activeClassName="current">Home</NavLink>
         </li>
         <li>
-          <Link to="/endpoints">Endpoints</Link>
+          <NavLink exact to="/endpoints" activeClassName="current">Endpoints</NavLink>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <NavLink exact to="/contact" activeClassName="current">Contact</NavLink>
         </li>
       </ul>
     </StyledDesktopNavigation>
