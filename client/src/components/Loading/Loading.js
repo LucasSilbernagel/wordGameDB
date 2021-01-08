@@ -8,7 +8,7 @@ function Loading(props) {
   } else {
     return (
       <StyledLoading>
-        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </StyledLoading>
     )
   }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledEndpoints = styled.section`
+export const StyledEndpoints = styled.div`
   text-align: center;
   padding: 10px 0px;
   .endpoint {

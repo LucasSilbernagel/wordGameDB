@@ -28,6 +28,7 @@ export const StyledDesktopNavigation = styled.nav`
       box-shadow: 5px 5px ${({ theme }) => theme.primaryLight};
     }
   }
+  // Style the nav link of the page you are currently on
   .current {
     box-shadow: 5px 5px ${({ theme }) => theme.primaryLight};
   }

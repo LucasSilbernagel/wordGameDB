@@ -1,14 +1,2 @@
-import { Link } from "react-router-dom";
-import { StyledMobileNavigation } from '.';
-
-function MobileNavigation() {
-
-  return (
-
-    <StyledMobileNavigation>
-      
-    </StyledMobileNavigation>
-  )
-}
-
-export default MobileNavigation;
+export { default as Burger } from './Burger/Burger';
+export { default as Menu } from './Menu/Menu';

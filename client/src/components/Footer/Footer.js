@@ -1,6 +1,7 @@
-import StyledFooter from './Footer.styled';
+import { StyledFooter } from './Footer.styled';
 
 function Footer() {
+
   return (
     <StyledFooter >
       <div className="wrapper">
@@ -10,6 +11,7 @@ function Footer() {
       </div>
     </StyledFooter >
   )
+  
 }
 
 export default Footer;
