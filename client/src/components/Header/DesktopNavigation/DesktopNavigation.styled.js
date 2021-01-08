@@ -28,4 +28,7 @@ export const StyledDesktopNavigation = styled.nav`
       box-shadow: 5px 5px ${({ theme }) => theme.primaryLight};
     }
   }
+  .current {
+    box-shadow: 5px 5px ${({ theme }) => theme.primaryLight};
+  }
 `;
