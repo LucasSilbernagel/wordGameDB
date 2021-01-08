@@ -7,9 +7,10 @@ export const StyledEndpoints = styled.div`
     margin-bottom: 100px;
     h2,
     h3 {
-      max-width: 95%;
       font-size: 1.2rem;
       padding: 0px 5px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
     h2 {
       margin-bottom: 20px;
@@ -21,7 +22,6 @@ export const StyledEndpoints = styled.div`
     @media(min-width: 600px) {
       h2,
       h3 {
-        max-width: unset;
         padding: unset;
       }
       h2 {
