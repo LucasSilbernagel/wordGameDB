@@ -11,6 +11,7 @@ import { GlobalStyles } from './globalStyles';
 import { theme } from './theme';
 
 const App = () => {
+
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -26,6 +27,7 @@ const App = () => {
       </>
     </ThemeProvider>
   );
+  
 }
 
 export default App;

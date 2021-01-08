@@ -1,5 +1,5 @@
 {
-  "name": "word-game-api",
+  "name": "word-game-db",
   "version": "1.0.0",
   "description": "A word game API built with MongoDB, Express, React, and Node.js",
   "main": "index.js",

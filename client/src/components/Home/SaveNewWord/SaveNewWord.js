@@ -14,6 +14,7 @@ class SaveNewWord extends Component {
   }
 
   saveWord = () => {
+    
     const wordObject = {
       word: this.state.word,
       category: this.state.category,
@@ -43,10 +44,11 @@ class SaveNewWord extends Component {
 
   render() {
     return (
+
       <StyledSaveNewWord >
         <p>Save a new word to the database using the form below:</p>
-        <StyledForm>
 
+        <StyledForm>
           <label htmlFor="word" className="sr-only">Word</label>
           <input id="word" required type="text" placeholder="Word" onChange={this.handleChange} />
           
@@ -61,7 +63,9 @@ class SaveNewWord extends Component {
           
           <StyledButton type="submit" onClick={this.saveWord}>Save word to API</StyledButton>
         </StyledForm>
+
       </StyledSaveNewWord >
+
     )
   }
 }

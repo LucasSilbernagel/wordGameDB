@@ -3,9 +3,11 @@ import { StyledForm } from '../Form.styled';
 import { StyledButton } from '../Button.styled';
 
 function Contact() {
+
   return (
     <main>
       <StyledContact className="wrapper">
+
         <p>Are you having technical issues with Word Game DB? Do you have questions about implementation? Suggestions for new categories or words? Other ideas for improvement? Feel free to email me directly at <span>hello@lucassilbernagel.com</span> or use the form below!</p>
 
         <StyledForm action="https://formspree.io/f/xoqpywlq" method="POST">
@@ -20,9 +22,11 @@ function Contact() {
 
           <StyledButton type="submit">Send</StyledButton>
         </StyledForm>
+        
       </StyledContact>
     </main>
   )
+
 }
 
 export default Contact;
