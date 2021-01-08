@@ -5,14 +5,31 @@ export const StyledEndpoints = styled.section`
   padding: 10px 0px;
   .endpoint {
     margin-bottom: 100px;
+    h2,
+    h3 {
+      max-width: 95%;
+      font-size: 1.2rem;
+      padding: 0px 5px;
+    }
     h2 {
-      font-size: 2rem;
       margin-bottom: 20px;
       text-decoration: underline;
     }
     h3 {
-      font-size: 1.4rem;
       text-decoration: underline;
+    }
+    @media(min-width: 600px) {
+      h2,
+      h3 {
+        max-width: unset;
+        padding: unset;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
     }
     ul {
       padding: unset;
