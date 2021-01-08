@@ -3,11 +3,11 @@ const router = express.Router();
 const Word = require('../models/word');
 
 // Endpoint to post a new word
-router.post('/v1/words', (req, res, next) => {
-  Word.create(req.body)
-      .then(data => res.json(data))
-      .catch(next)
-});
+// router.post('/v1/words', (req, res, next) => {
+//   Word.create(req.body)
+//       .then(data => res.json(data))
+//       .catch(next)
+// });
 
 // Endpoint to return all categories
 router.get('/v1/categories', (req, res, next) => {
