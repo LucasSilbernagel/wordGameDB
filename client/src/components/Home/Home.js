@@ -1,11 +1,11 @@
-import SaveNewWord from './SaveNewWord/SaveNewWord';
+// import SaveNewWord from './SaveNewWord/SaveNewWord';
 import About from './About/About';
 
 function Home() {
   return (
     <main>
       <div className="wrapper">
-        <SaveNewWord />
+        {/* <SaveNewWord /> */}
         <About />
       </div>
     </main>

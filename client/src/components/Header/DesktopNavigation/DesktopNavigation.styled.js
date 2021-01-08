@@ -5,7 +5,7 @@ export const StyledDesktopNavigation = styled.nav`
   display: none;
   @media (min-width: 576px) {
       display: flex;
-      justify-content: right;
+      justify-content: center;
     }
   ul {
     display: flex;
