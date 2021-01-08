@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StyledNotFound from './NotFound.styled';
+import { StyledNotFound } from './NotFound.styled';
 
 const NotFound = () => (
   <StyledNotFound>

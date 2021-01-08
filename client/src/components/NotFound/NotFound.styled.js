@@ -22,5 +22,3 @@ export const StyledNotFound = styled.div`
     }
   }
 `;
-
-export default StyledNotFound;

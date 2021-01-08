@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from '.././../hooks';
-import { Burger, Menu } from './MobileNavigation';
+import { Burger, Menu } from './MobileNavigation/MobileNavigation';
 import { StyledHeader } from './Header.styled';
 import FocusLock from 'react-focus-lock';
 import DesktopNavigation from './DesktopNavigation/DesktopNavigation';
