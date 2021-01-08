@@ -9,14 +9,19 @@ function Endpoints() {
 
   const [loading, setLoading] = useState(false);
 
-  function output(inp) {
+  function outputCategories(inp) {
+    const allCategories = document.getElementById('allCategories');
+    allCategories.innerHTML = inp;
+  }
+
+  function outputAll(inp) {
     const allData = document.getElementById('allData');
     allData.innerHTML = inp;
   }
 
-  function output2(inp) {
-    const allCategories = document.getElementById('allCategories');
-    allCategories.innerHTML = inp;
+  function outputRandom(inp) {
+    const random = document.getElementById('random');
+    random.innerHTML = inp;
   }
 
   function syntaxHighlight(json) {
@@ -37,6 +42,22 @@ function Endpoints() {
           return '<span class="' + cls + '">' + match + '</span>';
       });
   }
+
+  const showCategories = () => {
+
+    outputCategories("");
+    setLoading(true);
+    setTimeout(() => {
+      axios.get(`/api/v1/categories`)
+        .then((res) => {
+          let allCategories = Object.assign({}, res.data);
+          let str = JSON.stringify(allCategories, undefined, 4);
+          outputCategories(syntaxHighlight(str));
+        })
+        .then(setLoading(false))
+    }, 1000);
+        
+  };
 
   const showAllData = () => {
     
@@ -72,14 +93,14 @@ function Endpoints() {
       numSyllables = `numSyllables=${document.getElementById('numSyllables').value}`;
     };
 
-    output("");
+    outputAll("");
     setLoading(true);
     setTimeout(() => {
       axios.get(`/api/v1/words/?${_id}${category}${numLetters}${numSyllables}`)
         .then((res) => {
           let allData = Object.assign({}, res.data);
           let str = JSON.stringify(allData, undefined, 4);
-          output(syntaxHighlight(str));
+          outputAll(syntaxHighlight(str));
         })
         .then(setLoading(false))
     }, 1000);
@@ -92,16 +113,16 @@ function Endpoints() {
     }
   }
 
-  const showCategories = () => {
+  const showRandom = () => {
 
-    output2("");
+    outputRandom("");
     setLoading(true);
     setTimeout(() => {
-      axios.get(`/api/v1/categories`)
+      axios.get(`/api/v1/words/random`)
         .then((res) => {
-          let allCategories = Object.assign({}, res.data);
-          let str = JSON.stringify(allCategories, undefined, 4);
-          output2(syntaxHighlight(str));
+          let random = Object.assign({}, res.data);
+          let str = JSON.stringify(random, undefined, 4);
+          outputRandom(syntaxHighlight(str));
         })
         .then(setLoading(false))
     }, 1000);
@@ -159,6 +180,17 @@ function Endpoints() {
             </StyledForm>
             <StyledButton type="submit" onClick={showAllData}>Show Data ⬇</StyledButton>
             <pre id="allData">
+              <p>Data will be displayed here!</p>
+              <Loading loading={loading} />
+            </pre>
+          </div>
+
+          <div className="endpoint">
+            <h2>https://www.wordgamedb.com/api/v1/words/random</h2>
+            <p>Returns a random word from the database.</p>
+            <p>Try it out below!</p>
+            <StyledButton onClick={showRandom}>Show Random ⬇</StyledButton>
+            <pre id="random">
               <p>Data will be displayed here!</p>
               <Loading loading={loading} />
             </pre>
