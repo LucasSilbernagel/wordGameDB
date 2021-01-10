@@ -41,7 +41,7 @@ https://docs.atlas.mongodb.com/getting-started
 
 In the root folder of your app, create a new file called .env and save your connection string in it with a key of DB. Make sure to replace the password variable with your database user password. Your username should already be populated. The file should now look something like this:
 
-### `DB = mongodb+srv://demoUser:12345pass@cluster0.ywxa5.mongodb.net/test`
+`DB = mongodb+srv://demoUser:12345pass@cluster0.ywxa5.mongodb.net/test`
 
 There should be no quotation marks or brackets in this file.
 
