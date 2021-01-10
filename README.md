@@ -23,13 +23,12 @@ In order to run this application locally, you must have node installed on your c
 
 Once you have confirmed that node is installed, `cd` into a folder on your computer and run the following command to clone the repository:
 
-### `git clone https://github.com/LucasSilbernagel/wordGameDB.git`
+`git clone https://github.com/LucasSilbernagel/wordGameDB.git`
 
 Then `cd` into the root folder and open it in your code editor. For Visual Studio Code:
 
-### `cd wordGameDB`
-
-### `code .`
+`cd wordGameDB`
+`code .`
 
 Next, follow these steps to set up a free database with MongoDB Atlas:
 
