@@ -50,7 +50,7 @@ export const StyledEndpoints = styled.div`
       }
     }
     .accordion.collapsed {
-      height: 0px;
+      display: none;
       overflow: hidden;
     }
     h3 {
