@@ -9,6 +9,12 @@ function Endpoints() {
 
   const [loading, setLoading] = useState(false);
 
+  // Function to toggle accordion
+  const toggleAccordion = (e) => {
+    e.target.nextSibling.classList.toggle("collapsed");
+    e.target.classList.toggle("expanded");
+  }
+
   // Submit the All Data form if user presses Enter on a form input
   const handleKeyPress = (e) => {
     if(e.key === 'Enter'){
@@ -161,73 +167,79 @@ function Endpoints() {
 
           {/* Categories section */}
           <section className="endpoint">
-            <h2>https://www.wordgamedb.com/api/v1/categories</h2>
-            <p>Returns all categories from the database.</p>
-            <p>Try it out below!</p>
-            <StyledButton onClick={showCategories}>Show Categories ⬇</StyledButton>
-            <pre id="allCategories">
-              <p>Data will be displayed here!</p>
-              <Loading loading={loading} />
-            </pre>
+            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1/<span>categories</span></h2>
+            <div className="accordion collapsed">
+              <p>Returns all categories from the database.</p>
+              <p>Try it out below!</p>
+              <StyledButton onClick={showCategories}>Show Categories ⬇</StyledButton>
+              <pre id="allCategories">
+                <p>Data will be displayed here!</p>
+                <Loading loading={loading} />
+              </pre>
+            </div>
           </section>
 
           {/* All data section */}
           <section className="endpoint">
-            <h2>https://www.wordgamedb.com/api/v1/words</h2>
-            <p>Returns all words from the database.</p>
-            <p>Optional query parameters:</p>
+            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1/<span>words</span></h2>
+            <div className="accordion collapsed">
+              <p>Returns all words from the database.</p>
+              <p>Optional query parameters:</p>
 
-            <ul>
-              <li>
-                <p>_id → Filter by id</p>
-              </li>
-              <li>
-                <p>category → Filter by category</p>
-              </li>
-              <li>
-                <p>numLetters → Filter by number of letters</p>
-              </li>
-              <li>
-                <p>numSyllables → Filter by number of syllables</p>
-              </li>
-            </ul>
+              <ul>
+                <li>
+                  <p>_id → Filter by id</p>
+                </li>
+                <li>
+                  <p>category → Filter by category</p>
+                </li>
+                <li>
+                  <p>numLetters → Filter by number of letters</p>
+                </li>
+                <li>
+                  <p>numSyllables → Filter by number of syllables</p>
+                </li>
+              </ul>
 
-            <p>For example, to return words from the plant category with four letters, the URL for your GET request would look like this:</p>
-            <h3>https://www.wordgamedb.com/api/v1/words/?category=plant&numLetters=4</h3>
-            <p>Try it out using the form below!</p>
+              <p>For example, to return words from the plant category with four letters, the URL for your GET request would look like this:</p>
+              <h3>https://www.wordgamedb.com/api/v1/words/?category=plant&numLetters=4</h3>
+              <p>Try it out using the form below!</p>
 
-            {/* Form for testing query parameters */}
-            <StyledForm id="allDataForm">
-              <label htmlFor="_id" className="sr-only">_id (optional)</label>
-              <input id="_id" type="text" placeholder="_id" onKeyPress={handleKeyPress} />
-              
-              <label htmlFor="category" className="sr-only">Category (optional)</label>
-              <input id="category" type="text" placeholder="category" onKeyPress={handleKeyPress} />
+              {/* Form for testing query parameters */}
+              <StyledForm id="allDataForm">
+                <label htmlFor="_id" className="sr-only">_id (optional)</label>
+                <input id="_id" type="text" placeholder="_id" onKeyPress={handleKeyPress} />
+                
+                <label htmlFor="category" className="sr-only">Category (optional)</label>
+                <input id="category" type="text" placeholder="category" onKeyPress={handleKeyPress} />
 
-              <label htmlFor="numLetters" className="sr-only">numLetters</label>
-              <input id="numLetters" type="number" min="1" placeholder="numLetters" onKeyPress={handleKeyPress} />
+                <label htmlFor="numLetters" className="sr-only">numLetters</label>
+                <input id="numLetters" type="number" min="1" placeholder="numLetters" onKeyPress={handleKeyPress} />
 
-              <label htmlFor="numSyllables" className="sr-only">numSyllables (optional)</label>
-              <input id="numSyllables" type="number" min="1" placeholder="numSyllables" onKeyPress={handleKeyPress} />
-            </StyledForm>
-            <StyledButton type="submit" onClick={showAllData}>Show Data ⬇</StyledButton>
+                <label htmlFor="numSyllables" className="sr-only">numSyllables (optional)</label>
+                <input id="numSyllables" type="number" min="1" placeholder="numSyllables" onKeyPress={handleKeyPress} />
+              </StyledForm>
+              <StyledButton type="submit" onClick={showAllData}>Show Data ⬇</StyledButton>
 
-            <pre id="allData">
-              <p>Data will be displayed here!</p>
-              <Loading loading={loading} />
-            </pre>
+              <pre id="allData">
+                <p>Data will be displayed here!</p>
+                <Loading loading={loading} />
+              </pre>
+            </div>
           </section>
 
           {/* Random item section */}
           <section className="endpoint">
-            <h2>https://www.wordgamedb.com/api/v1/words/random</h2>
-            <p>Returns a random word from the database.</p>
-            <p>Try it out below!</p>
-            <StyledButton onClick={showRandom}>Show Random ⬇</StyledButton>
-            <pre id="random">
-              <p>Data will be displayed here!</p>
-              <Loading loading={loading} />
-            </pre>
+            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1/<span>words/random</span></h2>
+            <div className="accordion collapsed">
+              <p>Returns a random word from the database.</p>
+              <p>Try it out below!</p>
+              <StyledButton onClick={showRandom}>Show Random ⬇</StyledButton>
+              <pre id="random">
+                <p>Data will be displayed here!</p>
+                <Loading loading={loading} />
+              </pre>
+            </div>
           </section>
           
         </StyledEndpoints>

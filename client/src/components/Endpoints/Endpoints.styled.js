@@ -4,7 +4,7 @@ export const StyledEndpoints = styled.div`
   text-align: center;
   padding: 10px 0px;
   .endpoint {
-    margin-bottom: 100px;
+    margin: 50px 0px;
     h2,
     h3 {
       font-size: 1.2rem;
@@ -15,6 +15,43 @@ export const StyledEndpoints = styled.div`
     h2 {
       margin-bottom: 20px;
       text-decoration: underline;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      line-height: 1.5;
+      span {
+        background: ${({ theme }) => theme.secondaryDark};
+        pointer-events: none;
+      }
+    }
+    h2:after {
+      font-family: "Font Awesome 5 Free";
+      content: "\f13a";
+      display: block;
+      color: ${({ theme }) => theme.primaryLight};
+      font-size: 3rem;
+    }
+    h2.expanded:after {
+      font-family: "Font Awesome 5 Free";
+      content: "\f139";
+      display: block;
+      color: ${({ theme }) => theme.primaryLight};
+      font-size: 3rem;
+    }
+    @media(min-width: 1000px) {
+      h2 {
+        text-align: left;
+      }
+      h2:after,
+      h2.expanded:after {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+    .accordion.collapsed {
+      height: 0px;
+      overflow: hidden;
     }
     h3 {
       text-decoration: underline;
@@ -74,6 +111,12 @@ export const StyledEndpoints = styled.div`
       .key { 
         color: #F8F8F2; 
       }
+    }
+  }
+  @media(min-width: 1000px) {
+    .endpoint {
+      border: 2px solid ${({ theme }) => theme.primaryLight};
+      padding: 20px;
     }
   }
 `;
