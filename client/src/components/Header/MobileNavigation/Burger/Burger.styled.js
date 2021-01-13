@@ -8,7 +8,7 @@ export const StyledBurger = styled.button`
   flex-direction: column;
   justify-content: space-around;
   width: 2rem;
-  height: 2.6rem;
+  height: 3rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -18,8 +18,8 @@ export const StyledBurger = styled.button`
       display: none;
     }
   span {
-    width: 2.7rem;
-    height: 0.4rem;
+    width: 3rem;
+    height: 0.5rem;
     background: ${({ theme }) => theme.secondaryAccent};
     border-radius: 10px;
     transition: all 0.3s linear;
