@@ -18,6 +18,11 @@ export const StyledEndpoints = styled.div`
       cursor: pointer;
       text-decoration: none;
       position: relative;
+      line-height: 1.5;
+      span {
+        background: ${({ theme }) => theme.secondaryDark};
+        pointer-events: none;
+      }
     }
     h2:after {
       font-family: "Font Awesome 5 Free";
