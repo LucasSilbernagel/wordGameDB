@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { StyledDesktopNavigation } from './DesktopNavigation.styled';
 
-function MobileNavigation() {
+function DesktopNavigation() {
 
   return (
 
@@ -21,4 +21,4 @@ function MobileNavigation() {
   )
 }
 
-export default MobileNavigation;
+export default DesktopNavigation;
