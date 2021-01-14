@@ -167,7 +167,7 @@ function Endpoints() {
 
           {/* Categories section */}
           <section className="endpoint">
-            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1/<span>categories</span></h2>
+            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1<span className="param">/categories</span></h2>
             <div className="accordion collapsed">
               <p>Returns all categories from the database.</p>
               <p>Try it out below!</p>
@@ -181,7 +181,7 @@ function Endpoints() {
 
           {/* All data section */}
           <section className="endpoint">
-            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1/<span>words</span></h2>
+            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1<span className="param">/words</span></h2>
             <div className="accordion collapsed">
               <p>Returns all words from the database.</p>
               <p>Optional query parameters:</p>
@@ -230,7 +230,7 @@ function Endpoints() {
 
           {/* Random item section */}
           <section className="endpoint">
-            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1/<span>words/random</span></h2>
+            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1<span className="param">/words/random</span></h2>
             <div className="accordion collapsed">
               <p>Returns a random word from the database.</p>
               <p>Try it out below!</p>
