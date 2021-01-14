@@ -19,9 +19,10 @@ export const StyledEndpoints = styled.div`
       text-decoration: none;
       position: relative;
       line-height: 1.5;
-      span {
+      .param {
         background: ${({ theme }) => theme.secondaryDark};
         pointer-events: none;
+        display: inline-block;
       }
     }
     h2:after {
