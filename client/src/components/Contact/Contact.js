@@ -1,6 +1,7 @@
 import { StyledContact } from './Contact.styled';
 import { StyledForm } from '../Form.styled';
 import { StyledButton } from '../Button.styled';
+import React  from 'react';
 
 function Contact() {
 
