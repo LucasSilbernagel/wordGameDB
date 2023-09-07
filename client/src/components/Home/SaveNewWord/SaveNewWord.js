@@ -10,6 +10,7 @@ class SaveNewWord extends Component {
     category: "",
     numLetters: "",
     numSyllables: "",
+    hint: ""
   };
 
   saveWord = (e) => {
@@ -20,12 +21,14 @@ class SaveNewWord extends Component {
       category: this.state.category,
       numLetters: this.state.numLetters,
       numSyllables: this.state.numSyllables,
+      hint: this.state.hint,
     };
 
     // If all form fields are filled out, post to MongoDB. Otherwise, do nothing.
     if (
       wordObject.word !== "" &&
       wordObject.category !== "" &&
+      wordObject.hint !== "" &&
       wordObject.numLetters &&
       wordObject.numSyllables
     ) {
@@ -38,9 +41,10 @@ class SaveNewWord extends Component {
             category: "",
             numLetters: "",
             numSyllables: "",
+            hint: "",
           })
         )
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     } else {
       return;
     }
@@ -53,6 +57,7 @@ class SaveNewWord extends Component {
       category: document.getElementById("category").value,
       numLetters: document.getElementById("numLetters").value,
       numSyllables: document.getElementById("numSyllables").value,
+      hint: document.getElementById("hint").value,
     });
   };
 
@@ -110,6 +115,18 @@ class SaveNewWord extends Component {
             placeholder="Number of syllables"
             onChange={this.handleChange}
             value={this.state.numSyllables}
+          />
+
+          <label htmlFor="hint" className="sr-only">
+            Hint
+          </label>
+          <input
+            id="hint"
+            required
+            type="text"
+            placeholder="Hint"
+            onChange={this.handleChange}
+            value={this.state.hint}
           />
 
           <StyledButton type="submit" onClick={this.saveWord}>
