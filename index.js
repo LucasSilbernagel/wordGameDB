@@ -39,7 +39,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
-app.use((err, req, res, next) => {
+app.use((err, _req, _res, next) => {
   console.log(err);
   next();
 });
