@@ -1,6 +1,5 @@
 // import SaveNewWord from "./SaveNewWord/SaveNewWord";
-import About from "./About/About";
-import React  from 'react';
+import About from './About/About'
 
 function Home() {
   return (
@@ -10,7 +9,7 @@ function Home() {
         <About />
       </div>
     </main>
-  );
+  )
 }
 
-export default Home;
+export default Home

@@ -1,187 +1,215 @@
-import React, { useState } from "react";
-import { StyledEndpoints } from './Endpoints.styled';
-import { StyledForm } from '../Form.styled';
-import { StyledButton } from '../Button.styled';
-import axios from 'axios';
-import Loading from '../Loading/Loading';
+import { useState } from 'react'
+import { StyledEndpoints } from './Endpoints.styled'
+import { StyledForm } from '../Form.styled'
+import { StyledButton } from '../Button.styled'
+import axios from 'axios'
+import Loading from '../Loading/Loading'
 
 function Endpoints() {
-
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   // Function to toggle accordion
-  const toggleAccordion = (e) => {
-    e.target.nextSibling.classList.toggle("collapsed");
-    e.target.classList.toggle("expanded");
+  const toggleAccordion = (e, accordion) => {
+    e.target.nextSibling.classList.toggle('collapsed')
+    e.target.classList.toggle('expanded')
+    setAccordions({ ...accordions, [accordion]: !accordions[accordion] })
   }
 
-  // Submit the All Data form if user presses Enter on a form input
-  const handleKeyPress = (e) => {
-    if(e.key === 'Enter'){
-      showAllData();
+  const [accordions, setAccordions] = useState({
+    categories: false,
+    words: false,
+    random: false,
+  })
+
+  // Submit the All Data form if user presses Enter in an input
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (e.key === 'Enter') {
+      showAllData()
     }
   }
 
   // Style the JSON returned from the API
   function syntaxHighlight(json) {
-      json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g, function (match) {
-          var cls = 'number';
-          if (/^"/.test(match)) {
-              if (/:$/.test(match)) {
-                  cls = 'key';
-              } else {
-                  cls = 'string';
-              }
-          } else if (/true|false/.test(match)) {
-              cls = 'boolean';
-          } else if (/null/.test(match)) {
-              cls = 'null';
+    json = json
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+    return json.replace(
+      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,
+      function (match) {
+        var cls = 'number'
+        if (/^"/.test(match)) {
+          if (/:$/.test(match)) {
+            cls = 'key'
+          } else {
+            cls = 'string'
           }
-          return '<span class="' + cls + '">' + match + '</span>';
-      });
+        } else if (/true|false/.test(match)) {
+          cls = 'boolean'
+        } else if (/null/.test(match)) {
+          cls = 'null'
+        }
+        return '<span class="' + cls + '">' + match + '</span>'
+      }
+    )
   }
 
   const showCategories = () => {
-
     // When categories are returned from the API, display them in the categories box
     function outputCategories(inp) {
-      const allCategories = document.getElementById('allCategories');
-      allCategories.innerHTML = inp;
+      const allCategories = document.getElementById('allCategories')
+      allCategories.innerHTML = inp
     }
 
     // Remove starting content from categories box
-    outputCategories("");
+    outputCategories('')
     // Show the loading animation for one second
-    setLoading(true);
+    setLoading(true)
     setTimeout(() => {
       // API call
-      axios.get(`/api/v1/categories`)
+      axios
+        .get(`/api/v1/categories`)
         .catch((error) => console.log(error))
         .then((res) => {
           // Data is returned from the API in an array, and needs to be converted to an object.
-          let allCategories = Object.assign({}, res.data);
+          let allCategories = Object.assign({}, res.data)
           // Format the returned data and output it
-          let str = JSON.stringify(allCategories, undefined, 4);
-          outputCategories(syntaxHighlight(str));
+          let str = JSON.stringify(allCategories, undefined, 4)
+          outputCategories(syntaxHighlight(str))
         })
         .then(setLoading(false))
-    }, 1000);   
-  };
+    }, 1000)
+  }
 
   const showAllData = () => {
-
     // When the data is returned from the API, display it in the data box
     function outputAll(inp) {
-      const allData = document.getElementById('allData');
-      allData.innerHTML = inp;
+      const allData = document.getElementById('allData')
+      allData.innerHTML = inp
     }
-    
+
     // If the user inputs an ID to the form, update the query URL with the ID
-    let _idVal = `${document.getElementById('_id').value}`;
-    let _id = "";
-    if (_idVal === "") {
-      _id = "";
+    let _idVal = `${document.getElementById('_id').value}`
+    let _id = ''
+    if (_idVal === '') {
+      _id = ''
     } else {
-      _id = `_id=${document.getElementById('_id').value}&`;
-    };
+      _id = `_id=${document.getElementById('_id').value}&`
+    }
 
     // If the user inputs a category to the form, update the query URL with the category
-    let categoryVal = `${document.getElementById('category').value}`;
-    let category = "";
-    if (categoryVal === "") {
-      category = "";
+    let categoryVal = `${document.getElementById('category').value}`
+    let category = ''
+    if (categoryVal === '') {
+      category = ''
     } else {
-      category = `category=${document.getElementById('category').value}&`;
-    };
+      category = `category=${document.getElementById('category').value}&`
+    }
 
     // If the user inputs a number of letters to the form, add it to the query URL
-    let numLettersVal = `${document.getElementById('numLetters').value}`;
-    let numLetters = "";
-    if (numLettersVal === "") {
-      numLetters = "";
+    let numLettersVal = `${document.getElementById('numLetters').value}`
+    let numLetters = ''
+    if (numLettersVal === '') {
+      numLetters = ''
     } else {
-      numLetters = `numLetters=${document.getElementById('numLetters').value}&`;
-    };
+      numLetters = `numLetters=${document.getElementById('numLetters').value}&`
+    }
 
     // If the user inputs a number of syllables to the form, add it to the query URL
-    let numSyllablesVal = `${document.getElementById('numSyllables').value}`;
-    let numSyllables = "";
-    if (numSyllablesVal === "") {
-      numSyllables = "";
+    let numSyllablesVal = `${document.getElementById('numSyllables').value}`
+    let numSyllables = ''
+    if (numSyllablesVal === '') {
+      numSyllables = ''
     } else {
-      numSyllables = `numSyllables=${document.getElementById('numSyllables').value}`;
-    };
+      numSyllables = `numSyllables=${
+        document.getElementById('numSyllables').value
+      }`
+    }
 
     // Remove starting content from the data box
-    outputAll("");
+    outputAll('')
     // Show the loading animation for one second
-    setLoading(true);
+    setLoading(true)
     setTimeout(() => {
       // Make the API call, including query parameters if used.
-      axios.get(`/api/v1/words/?${_id}${category}${numLetters}${numSyllables}`)
+      axios
+        .get(`/api/v1/words/?${_id}${category}${numLetters}${numSyllables}`)
         .then((res) => {
           // The data returns from the API in an array and needs to be converted to an object.
-          let allData = Object.assign({}, res.data);
+          let allData = Object.assign({}, res.data)
           // Format the returned data and output it
-          let str = JSON.stringify(allData, undefined, 4);
-          outputAll(syntaxHighlight(str));
+          let str = JSON.stringify(allData, undefined, 4)
+          outputAll(syntaxHighlight(str))
         })
         .then(setLoading(false))
-    }, 1000);
-        
-  };
+    }, 1000)
+  }
 
   const showRandom = () => {
-
     // When the random item is returned from the API, display it in the data box.
     function outputRandom(inp) {
-      const random = document.getElementById('random');
-      random.innerHTML = inp;
+      const random = document.getElementById('random')
+      random.innerHTML = inp
     }
 
     // First remove the initial content from the data box
-    outputRandom("");
+    outputRandom('')
     // Display the loading animation for one second
-    setLoading(true);
+    setLoading(true)
     setTimeout(() => {
       // Make the API call
-      axios.get(`/api/v1/words/random`)
+      axios
+        .get(`/api/v1/words/random`)
         .then((res) => {
           // The data returns from the API in an array and needs to be converted to an object.
-          let random = Object.assign({}, res.data);
+          let random = Object.assign({}, res.data)
           // Format the data and display it in the data box
-          let str = JSON.stringify(random, undefined, 4);
-          outputRandom(syntaxHighlight(str));
+          let str = JSON.stringify(random, undefined, 4)
+          outputRandom(syntaxHighlight(str))
         })
         .then(setLoading(false))
-    }, 1000);
-        
-  };
+    }, 1000)
+  }
 
   return (
     <main>
+      <h2 className="sr-only">Endpoints</h2>
       <div className="wrapper">
-
         <StyledEndpoints>
-
           {/* Categories section */}
-          <section className="endpoint">
-            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1<span className="param">/categories</span></h2>
+          <li className="endpoint">
+            <button
+              aria-expanded={accordions.categories}
+              className="accordion-button"
+              onClick={(e) => toggleAccordion(e, 'categories')}
+            >
+              https://www.wordgamedb.com/api/v1
+              <span className="param">/categories</span>
+            </button>
             <div className="accordion collapsed">
               <p>Returns all categories from the database.</p>
               <p>Try it out below!</p>
-              <StyledButton onClick={showCategories}>Show Categories ⬇</StyledButton>
+              <StyledButton onClick={showCategories}>
+                Show Categories ⬇
+              </StyledButton>
               <pre id="allCategories">
                 <p>Data will be displayed here!</p>
                 <Loading loading={loading} />
               </pre>
             </div>
-          </section>
+          </li>
 
           {/* All data section */}
-          <section className="endpoint">
-            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1<span className="param">/words</span></h2>
+          <li className="endpoint">
+            <button
+              className="accordion-button"
+              onClick={(e) => toggleAccordion(e, 'words')}
+              aria-expanded={accordions.words}
+            >
+              https://www.wordgamedb.com/api/v1
+              <span className="param">/words</span>
+            </button>
             <div className="accordion collapsed">
               <p>Returns all words from the database.</p>
               <p>Optional query parameters:</p>
@@ -201,36 +229,68 @@ function Endpoints() {
                 </li>
               </ul>
 
-              <p>For example, to return words from the plant category with four letters, the URL for your GET request would look like this:</p>
-              <h3>https://www.wordgamedb.com/api/v1/words/?category=plant&numLetters=4</h3>
+              <p>
+                For example, to return words from the plant category with four
+                letters, the URL for your GET request would look like this:
+              </p>
+              <h3>
+                https://www.wordgamedb.com/api/v1/words/?category=plant&numLetters=4
+              </h3>
               <p>Try it out using the form below!</p>
 
               {/* Form for testing query parameters */}
-              <StyledForm id="allDataForm">
-                <label htmlFor="_id" className="sr-only">_id (optional)</label>
-                <input id="_id" type="text" placeholder="_id" onKeyPress={handleKeyPress} />
-                
-                <label htmlFor="category" className="sr-only">Category (optional)</label>
-                <input id="category" type="text" placeholder="category" onKeyPress={handleKeyPress} />
+              <StyledForm id="allDataForm" onSubmit={handleSubmit}>
+                <label htmlFor="_id" className="sr-only">
+                  _id (optional)
+                </label>
+                <input id="_id" type="text" placeholder="_id" />
 
-                <label htmlFor="numLetters" className="sr-only">numLetters</label>
-                <input id="numLetters" type="number" min="1" placeholder="numLetters" onKeyPress={handleKeyPress} />
+                <label htmlFor="category" className="sr-only">
+                  Category (optional)
+                </label>
+                <input id="category" type="text" placeholder="category" />
 
-                <label htmlFor="numSyllables" className="sr-only">numSyllables (optional)</label>
-                <input id="numSyllables" type="number" min="1" placeholder="numSyllables" onKeyPress={handleKeyPress} />
+                <label htmlFor="numLetters" className="sr-only">
+                  numLetters
+                </label>
+                <input
+                  id="numLetters"
+                  type="number"
+                  min="1"
+                  placeholder="numLetters"
+                />
+
+                <label htmlFor="numSyllables" className="sr-only">
+                  numSyllables (optional)
+                </label>
+                <input
+                  id="numSyllables"
+                  type="number"
+                  min="1"
+                  placeholder="numSyllables"
+                />
               </StyledForm>
-              <StyledButton type="submit" onClick={showAllData}>Show Data ⬇</StyledButton>
+              <StyledButton type="submit" onClick={showAllData}>
+                Show Data ⬇
+              </StyledButton>
 
               <pre id="allData">
                 <p>Data will be displayed here!</p>
                 <Loading loading={loading} />
               </pre>
             </div>
-          </section>
+          </li>
 
           {/* Random item section */}
-          <section className="endpoint">
-            <h2 tabIndex="0" onKeyPress={toggleAccordion} onClick={toggleAccordion}>https://www.wordgamedb.com/api/v1<span className="param">/words/random</span></h2>
+          <li className="endpoint">
+            <button
+              className="accordion-button"
+              onClick={(e) => toggleAccordion(e, 'random')}
+              aria-expanded={accordions.random}
+            >
+              https://www.wordgamedb.com/api/v1
+              <span className="param">/words/random</span>
+            </button>
             <div className="accordion collapsed">
               <p>Returns a random word from the database.</p>
               <p>Try it out below!</p>
@@ -240,12 +300,11 @@ function Endpoints() {
                 <Loading loading={loading} />
               </pre>
             </div>
-          </section>
-          
+          </li>
         </StyledEndpoints>
       </div>
     </main>
   )
 }
 
-export default Endpoints;
+export default Endpoints

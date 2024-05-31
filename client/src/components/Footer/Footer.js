@@ -1,16 +1,22 @@
-import React  from 'react';
-import { StyledFooter } from './Footer.styled';
+import { StyledFooter } from './Footer.styled'
 
 function Footer() {
-
   return (
-    <StyledFooter >
+    <StyledFooter>
       <div className="wrapper">
-        <p>Built by <a href="https://lucassilbernagel.com/" target="_blank" rel="noopener noreferrer">Lucas Silbernagel</a></p>
+        <p>
+          Built by{' '}
+          <a
+            href="https://lucassilbernagel.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Lucas Silbernagel
+          </a>
+        </p>
       </div>
-    </StyledFooter >
+    </StyledFooter>
   )
-  
 }
 
-export default Footer;
+export default Footer

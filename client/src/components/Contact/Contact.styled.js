@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledContact = styled.div`
   p {
@@ -9,4 +9,4 @@ export const StyledContact = styled.div`
   button {
     margin-bottom: 50px;
   }
-`;
+`

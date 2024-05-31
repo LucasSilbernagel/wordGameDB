@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
   padding: 80px 0px 20px 0px;
@@ -11,10 +11,10 @@ export const StyledHeader = styled.header`
     letter-spacing: 2px;
     padding: 20px 0px;
   }
-  @media(min-width: 576px) {
+  @media (min-width: 576px) {
     padding: 10px 0px;
     h1 {
       font-size: 3.5rem;
     }
   }
-`;
+`

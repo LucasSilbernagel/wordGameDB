@@ -1,24 +1,26 @@
-import React, { useState, useRef } from 'react';
-import { useOnClickOutside } from '.././../hooks';
-import { Burger, Menu } from './MobileNavigation/MobileNavigation';
-import { StyledHeader } from './Header.styled';
-import FocusLock from 'react-focus-lock';
-import DesktopNavigation from './DesktopNavigation/DesktopNavigation';
+import { useState, useRef } from 'react'
+import { useOnClickOutside } from '.././../hooks'
+import { Burger, Menu } from './MobileNavigation/MobileNavigation'
+import { StyledHeader } from './Header.styled'
+import FocusLock from 'react-focus-lock'
+import DesktopNavigation from './DesktopNavigation/DesktopNavigation'
 
 function Header() {
+  const [open, setOpen] = useState(false)
+  const node = useRef()
+  const menuId = 'main-menu'
 
-  const [open, setOpen] = useState(false);
-  const node = useRef();
-  const menuId = "main-menu";
-
-  useOnClickOutside(node, () => setOpen(false));
+  useOnClickOutside(node, () => setOpen(false))
 
   return (
-    <StyledHeader >
+    <StyledHeader>
       <div className="wrapper">
-
         {/* Mobile navigation */}
-        <div ref={node}>
+        <div
+          ref={node}
+          role={open ? 'dialog' : undefined}
+          aria-modal={open ? 'true' : undefined}
+        >
           <FocusLock disabled={!open}>
             <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
             <Menu open={open} setOpen={setOpen} id={menuId} />
@@ -26,11 +28,11 @@ function Header() {
         </div>
 
         <DesktopNavigation />
-        
+
         <h1>Word Game DB</h1>
       </div>
-    </StyledHeader >
+    </StyledHeader>
   )
 }
 
-export default Header;
+export default Header

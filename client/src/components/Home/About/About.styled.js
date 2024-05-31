@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledAbout = styled.section`
   padding: 20px 0px;
@@ -13,4 +13,4 @@ export const StyledAbout = styled.section`
       text-decoration: none;
     }
   }
-`;
+`

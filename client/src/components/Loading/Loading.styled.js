@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledLoading = styled.div`
   text-align: center;
@@ -58,4 +58,4 @@ export const StyledLoading = styled.div`
       transform: translate(24px, 0);
     }
   }
-`;
+`

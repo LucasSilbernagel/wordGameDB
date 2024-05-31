@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledButton = styled.button`
   border: none;
@@ -17,4 +17,4 @@ export const StyledButton = styled.button`
   &:active {
     box-shadow: 2px 4px ${({ theme }) => theme.primaryLight};
   }
-`;
+`

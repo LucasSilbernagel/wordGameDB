@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledForm = styled.form`
   margin: 0 auto;
@@ -16,7 +16,7 @@ export const StyledForm = styled.form`
     font-size: 1.5rem;
     border: none;
     padding: 10px 20px;
-    &[type=number] {
+    &[type='number'] {
       appearance: textfield;
     }
   }
@@ -24,4 +24,4 @@ export const StyledForm = styled.form`
     resize: none;
     height: 300px;
   }
-`;
+`

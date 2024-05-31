@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledDesktopNavigation = styled.nav`
   text-transform: uppercase;
   display: none;
   @media (min-width: 576px) {
-      display: flex;
-      justify-content: center;
-    }
+    display: flex;
+    justify-content: center;
+  }
   ul {
     display: flex;
     justify-content: space-between;
@@ -28,8 +28,4 @@ export const StyledDesktopNavigation = styled.nav`
       box-shadow: 5px 5px ${({ theme }) => theme.primaryLight};
     }
   }
-  // Style the nav link of the page you are currently on
-  .current {
-    box-shadow: 5px 5px ${({ theme }) => theme.primaryLight};
-  }
-`;
+`

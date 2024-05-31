@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledMenu = styled.nav`
   display: flex;
@@ -7,15 +7,15 @@ export const StyledMenu = styled.nav`
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.primaryLight};
-  right: ${({ open }) => open ? '0' : '-200%'};
+  right: ${({ open }) => (open ? '0' : '-200%')};
   height: 100vh;
   padding: 2rem;
   position: fixed;
   top: 0;
   transition: all 0.3s ease-in-out;
   @media (min-width: 576px) {
-      display: none;
-    }
+    display: none;
+  }
   a {
     font-size: 2rem;
     text-align: center;
@@ -32,4 +32,4 @@ export const StyledMenu = styled.nav`
       color: ${({ theme }) => theme.secondaryAccent};
     }
   }
-`;
+`

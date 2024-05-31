@@ -1,17 +1,25 @@
-import React from "react";
-import { StyledLoading } from './Loading.styled';
+import { StyledLoading } from './Loading.styled'
+import { bool } from 'prop-types'
 
 function Loading(props) {
-
   if (!props.loading) {
-    return null;
+    return null
   } else {
     return (
       <StyledLoading>
-        <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        <div className="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </StyledLoading>
     )
   }
 }
 
-export default Loading;
+Loading.propTypes = {
+  loading: bool.isRequired,
+}
+
+export default Loading
