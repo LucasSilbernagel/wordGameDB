@@ -7,9 +7,6 @@
 
 wordGameDB is a read-only REST API built with the MERN stack (MongoDB, Express, React, and Node.js). It is intended to be used for educational purposes by anyone who would like to practice their coding skills by building a word game that incorporates an API.
 
-## Live Link
-https://www.wordgamedb.com/
-
 ## Example Implementation
 
 ### Hangman
