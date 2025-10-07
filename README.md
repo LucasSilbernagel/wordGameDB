@@ -1,5 +1,8 @@
 # wordGameDB
 
+> [!IMPORTANT]
+> There is a more up to date version of this project built with Next.js: https://github.com/LucasSilbernagel/word-game-db-v2
+
 ## Description
 
 wordGameDB is a read-only REST API built with the MERN stack (MongoDB, Express, React, and Node.js). It is intended to be used for educational purposes by anyone who would like to practice their coding skills by building a word game that incorporates an API.
